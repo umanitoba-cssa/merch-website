@@ -11,10 +11,11 @@ export default async function Navbar() {
                             <img
                                 className="fit-content contain h-32 aspect-square"
                                 src="https://umanitobacssa.ca/img/logo.png"
+                                alt="UManitoba CSSA Logo"
                             />
                             <div className="ml-12 flex flex-col justify-center font-sans">
                                 <h2 className="text-4xl leading-5 mb-8 flex font-bold">
-                                    Computer Science' Students Association
+                                    Computer Science Students Association
                                 </h2>
                                 <div className="flex text-3xl mb-1">Merch Store</div>
                             </div>

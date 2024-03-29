@@ -39,7 +39,7 @@ export default function ProductInfo({ product, price }: { product: Product; pric
                 api.scrollTo(image);
             }
         }
-    }, [selectedColor]);
+    }, [selectedColor, api, product.images, product.options, product.variants]);
 
     const sizes = product.options.find((option) => option.type === "size")?.values;
     const sizeButtons = sizes?.map((size) => (
@@ -78,7 +78,7 @@ export default function ProductInfo({ product, price }: { product: Product; pric
                     className={`hover:cursor-pointer ${i == selectedImage ? "border-amber-400 border-2" : ""}`}
                 >
                     <CardContent className="flex aspect-square items-center justify-center p-1">
-                        <img fetchPriority="low" className="w-full" src={image.src} />
+                        <img fetchPriority="low" className="w-full" src={image.src} alt={`Product image ${selectedImage}`} />
                     </CardContent>
                 </Card>
             </div>
@@ -90,7 +90,7 @@ export default function ProductInfo({ product, price }: { product: Product; pric
             <div className="grid grid-cols-2 gap-24">
                 <div className="col-span-1">
                     <div className="w-full">
-                        <img fetchPriority="high" className="w-full" src={product.images[selectedImage].src} />
+                        <img fetchPriority="high" className="w-full" src={product.images[selectedImage].src} alt={`Product image ${selectedImage}`} />
                         <Carousel setApi={setApi}>
                             <CarouselContent>{imageButtons}</CarouselContent>
                             <CarouselPrevious />
